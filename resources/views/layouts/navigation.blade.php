@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('rate_pricing')" :active="request()->routeIs('rate_pricing')">
                         {{ __('Rate Pricing') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('provider_celular')" :active="request()->routeIs('provider_celular')">
+                        {{ __('Provider') }}
+                    </x-nav-link>
                 </div>
             </div>
 

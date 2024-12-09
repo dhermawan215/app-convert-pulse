@@ -6,7 +6,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Rate Pricing Data') }}
+            {{ __('Provider Celular') }}
         </h2>
     </x-slot>
 
@@ -23,10 +23,7 @@
                                         No
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Rate
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Provider
+                                        Name
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Action
@@ -37,7 +34,7 @@
                                 @php
                                     $i = 1;
                                 @endphp
-                                @forelse ($rate as $value)
+                                @forelse ($provider as $value)
                                     <tr
                                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <th scope="row"
@@ -45,10 +42,7 @@
                                             {{ $i++ }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $value->rateToProvider ? $value->rateToProvider->provider_name : 'empty data' }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ $value->rate_value }}
+                                            {{ $value->provider_name }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <a href="#"

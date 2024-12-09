@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\RateController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::controller(RateController::class)->group(function () {
         Route::get('/rate-pricing', 'index')->name('rate_pricing');
+    });
+    Route::controller(ProviderController::class)->group(function () {
+        Route::get('/provider-celular', 'index')->name('provider_celular');
     });
 });
 
