@@ -35,6 +35,12 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::controller(RateController::class)->group(function () {
         Route::get('/rate-pricing', 'index')->name('rate_pricing');
+        Route::post('/rate-pricing/list', 'list');
+        Route::get('/rate-pricing/add', 'add')->name('rate_pricing.add');
+        Route::get('/rate-pricing/edit/{id}', 'edit')->name('rate_pricing.edit');
+        Route::post('/rate-pricing/save', 'store');
+        Route::post('/rate-pricing/update', 'update');
+        Route::post('/rate-pricing/delete', 'destroy');
     });
     Route::controller(ProviderController::class)->group(function () {
         Route::get('/provider-celular', 'index')->name('provider_celular');
