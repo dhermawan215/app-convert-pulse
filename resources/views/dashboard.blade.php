@@ -16,7 +16,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-xl font-bold">Providers</h2>
-                                    <p class="text-gray-500">2 Payments</p>
+                                    <p class="text-gray-500">{{ $providerCount }} items</p>
                                 </div>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md flex items-center">
@@ -25,7 +25,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-xl font-bold">Payment Method</h2>
-                                    <p class="text-gray-500">43 Items</p>
+                                    <p class="text-gray-500">{{ $paymentCount }} Items</p>
                                 </div>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md flex items-center">
@@ -34,7 +34,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-xl font-bold">Transaction Success</h2>
-                                    <p class="text-gray-500">70 Active</p>
+                                    <p class="text-gray-500">{{ $transactionSuccess }} items</p>
                                 </div>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md flex items-center">
@@ -43,7 +43,7 @@
                                 </div>
                                 <div>
                                     <h2 class="text-xl font-bold">Transaction Pending</h2>
-                                    <p class="text-gray-500">90 Approved</p>
+                                    <p class="text-gray-500">{{ $transactionPending }} items</p>
                                 </div>
                             </div>
                             <div class="bg-white p-4 rounded-lg shadow-md flex items-center">
@@ -51,8 +51,8 @@
                                     <i class="fas fa-comments"></i>
                                 </div>
                                 <div>
-                                    <h2 class="text-xl font-bold">Transaction Cancel</h2>
-                                    <p class="text-gray-500">90 Approved</p>
+                                    <h2 class="text-xl font-bold">Transaction Cancel/Failed</h2>
+                                    <p class="text-gray-500">{{ $transactionFail }} items</p>
                                 </div>
                             </div>
                         </div>
