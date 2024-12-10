@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\RateController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,19 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     });
     Route::controller(ProviderController::class)->group(function () {
         Route::get('/provider-celular', 'index')->name('provider_celular');
+        Route::post('/provider-celular/list', 'list');
+        Route::post('/provider-celular/save', 'store');
+        Route::post('/provider-celular/delete', 'destroy');
+        Route::post('/provider-celular/info', 'info');
+        Route::post('/provider-celular/update', 'update');
+    });
+    Route::controller(PaymentMethodController::class)->group(function () {
+        Route::get('/payment-method', 'index')->name('payment_method');
+        Route::post('/payment-method/list', 'list');
+        Route::post('/payment-method/save', 'store');
+        Route::post('/payment-method/delete', 'destroy');
+        Route::post('/payment-method/info', 'info');
+        Route::post('/payment-method/update', 'update');
     });
 });
 

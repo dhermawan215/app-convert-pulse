@@ -119,7 +119,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Provider Celular') }}
+            {{ __('Payment Method') }}
         </h2>
     </x-slot>
 
@@ -128,7 +128,7 @@
             <div class="breadcrumbs text-sm text-black">
                 <ul>
                     <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li><a>Provider</a></li>
+                    <li><a>Payment method</a></li>
                 </ul>
             </div>
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-300 shadow sm:rounded-lg">
@@ -143,7 +143,7 @@
                     <button id="btn-delete"
                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-500 focus:outline-none dark:focus:ring-red-600"><i
                             class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-                    <table id="tbl-providers"
+                    <table id="tbl-payment"
                         class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-cyan-700 dark:bg-blue-400 dark:text-white-400">
                             <tr>
@@ -176,16 +176,15 @@
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="text-lg font-bold">Modal add data provider</h3>
-            <form action="javascript:;" id="form-add-provider" class="max-w-sm mx-auto">
+            <h3 class="text-lg font-bold">Modal add payment method</h3>
+            <form action="javascript:;" id="form-add-payment" class="max-w-sm mx-auto">
                 @csrf
                 <div class="mb-5 mt-3">
-                    <label for="provider-name"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provider
+                    <label for="method-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Method
                         name</label>
-                    <input type="text" id="provider-name" name="provider_name"
+                    <input type="text" id="method-name" name="name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="input provider name" required />
+                        placeholder="payment method, e.g.: BRI/Mandiri/OVO" required />
                 </div>
                 <button type="submit"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
@@ -198,16 +197,16 @@
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <h3 class="text-lg font-bold">Modal edit data provider</h3>
-            <form action="javascript:;" id="form-edit-provider" class="max-w-sm mx-auto">
+            <h3 class="text-lg font-bold">Modal edit payment method</h3>
+            <form action="javascript:;" id="form-edit-payment" class="max-w-sm mx-auto">
                 @csrf
                 <div class="mb-5 mt-3">
-                    <label for="provider-name-edit"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provider
+                    <label for="payment-name-edit"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Method
                         name</label>
-                    <input type="text" id="provider-name-edit" name="provider_name"
+                    <input type="text" id="payment-name-edit" name="name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="input provider name" required />
+                        placeholder="payment method, e.g.: BRI/Mandiri/OVO" required />
                 </div>
                 <button type="submit"
                     class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Update</button>
@@ -226,6 +225,6 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="{{ asset('vendor/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('vendor/js/dataTables.responsive.min.js') }}"></script>
-        <script src="{{ asset('dist/admin/provider/view.min.js?xc=') . time() }}"></script>
+        <script src="{{ asset('dist/admin/payment/view.min.js?xc=') . time() }}"></script>
     @endpush
 </x-app-layout>

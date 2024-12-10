@@ -14,6 +14,7 @@ class Transaction extends Model
         'transaction_number',
         'provider_id',
         'rate',
+        'phone_number',
         'pulse_amount',
         'total_pulse',
         'payment_id',

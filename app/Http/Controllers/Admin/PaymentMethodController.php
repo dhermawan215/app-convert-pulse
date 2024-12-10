@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Provider;
 use Illuminate\Http\Request;
+use App\Models\PaymentMethod;
 use App\Traits\CustomEncrypt;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class ProviderController extends Controller
+class PaymentMethodController extends Controller
 {
     use CustomEncrypt;
 
     public function index()
     {
-        return \view('admin.provider.index');
+        return \view('admin.payment.index');
     }
 
     public function list(Request $request)
@@ -25,10 +25,10 @@ class ProviderController extends Controller
         $limit = $request['length'] ? $request['length'] : 15;
         $globalSearch = $request['search']['value'];
 
-        $query = Provider::select('*');
+        $query = PaymentMethod::select('*');
 
         if ($globalSearch) {
-            $query->where('provider_name', 'like', '%' . $globalSearch . '%');
+            $query->where('name', 'like', '%' . $globalSearch . '%');
         }
 
         $recordsFiltered = $query->count();
@@ -46,7 +46,7 @@ class ProviderController extends Controller
         foreach ($resData as $key => $value) {
             $data['cbox'] = '<input type="checkbox" class="data-menu-cbox" value="' . $value->id . '">';
             $data['rnum'] = $i;
-            $data['provider_name'] = $value->provider_name;
+            $data['name'] = $value->name;
             $data['action'] = '<button onclick="modal_edit_data.showModal()" class="btn-edits text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-dt="' . $this->encryptData($value->id) . '">Edit</button>';
             $arr[] = $data;
             $i++;
@@ -63,7 +63,7 @@ class ProviderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'provider_name' => 'required|max:100',
+            'name' => 'required|max:100',
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 403);
@@ -71,31 +71,11 @@ class ProviderController extends Controller
         $user = Auth::user();
 
         try {
-            Provider::create([
-                'provider_name' => $request->provider_name,
+            PaymentMethod::create([
+                'name' => $request->name,
                 'created_by' => $user->name,
             ]);
             return response()->json(['success' => true, 'message' => 'Data saved!'], 200);
-        } catch (\Throwable $th) {
-            return response()->json(['success' => false, 'message' => 'Error'], 500);
-        }
-    }
-
-    public function update(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'provider_name' => 'required|max:100',
-        ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 403);
-        }
-
-        try {
-            $query = Provider::find($this->decryptData($request->svx));
-            $query->update([
-                'provider_name' => $request->provider_name,
-            ]);
-            return response()->json(['success' => true, 'message' => 'Update success'], 200);
         } catch (\Throwable $th) {
             return response()->json(['success' => false, 'message' => 'Error'], 500);
         }
@@ -105,9 +85,9 @@ class ProviderController extends Controller
     {
         $id = $this->decryptData($request->dvx);
         try {
-            $query = Provider::find($id);
+            $query = PaymentMethod::find($id);
             $resposnse = [
-                'provider_name' => $query ? $query->provider_name : null,
+                'name' => $query ? $query->name : null,
             ];
             return response()->json(['success' => true, 'data' => $resposnse], 200);
         } catch (\Throwable $th) {
@@ -115,11 +95,31 @@ class ProviderController extends Controller
         }
     }
 
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:100',
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 403);
+        }
+
+        try {
+            $query = PaymentMethod::find($this->decryptData($request->svx));
+            $query->update([
+                'name' => $request->name,
+            ]);
+            return response()->json(['success' => true, 'message' => 'Update success'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['success' => false, 'message' => 'Error'], 500);
+        }
+    }
+
     public function destroy(Request $request)
     {
         $ids = $request->dValue;
         try {
-            Provider::whereIn('id', $ids)->delete();
+            PaymentMethod::whereIn('id', $ids)->delete();
             return response()->json(['success' => true, 'message' => 'Success!'], 200);
         } catch (\Throwable $th) {
             return response()->json(['success' => false, 'message' => 'Error'], 500);
