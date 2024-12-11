@@ -10,7 +10,7 @@ class Rate extends Model
 {
     use HasFactory;
     protected $table = 'rates';
-    protected $fillable = ['provider_id', 'rate_value'];
+    protected $fillable = ['provider_id', 'rate_value', 'created_by'];
 
     //belong to provider
     public function rateToProvider(): BelongsTo
