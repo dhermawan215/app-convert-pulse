@@ -61,8 +61,8 @@ class LandingPageController extends Controller
         ]);
 
         $queryPesan = Transaction::with(['transactionToProvider:id,provider_name', 'transactionToPayment:id,name'])->find($query->id);
-
-        $url = 'https://api.whatsapp.com/send/?phone=62895383606605&text=' . urlencode(
+        $waNumber = \env('WA_NUMBER');
+        $url = 'https://api.whatsapp.com/send/?phone=' . $waNumber . '&text=' . urlencode(
             "Halo admin, saya ingin convert pulsa dengan detail:\n\n" .
                 "- TRID: " . $queryPesan->transaction_number . "\n" .
                 "- Item: CONVERT PULSA " . $queryPesan->transactionToProvider->provider_name . "\n" .
