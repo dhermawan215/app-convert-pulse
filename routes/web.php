@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingPageController::class, 'index']);
+Route::get('/tukar-pulsa', [LandingPageController::class, 'tukarSekarang'])->name('tukar_pulsa');
+Route::post('/tukar-pulsa', [LandingPageController::class, 'process'])->name('tukar_pulsa_proses');
+Route::post('/rate-pulsa', [LandingPageController::class, 'getRate']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');

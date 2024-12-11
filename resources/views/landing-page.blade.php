@@ -43,7 +43,7 @@
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-            <a class="btn-getstarted" href="#">Tukar Sekarang</a>
+            <a class="btn-getstarted" href="{{ route('tukar_pulsa') }}">Tukar Sekarang</a>
         </div>
     </header>
 
@@ -88,22 +88,22 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="stat-item">
                             <div class="stat-icon">
-                                <i class="bi bi-graph-up"></i>
+                                <i class="bi bi-star"></i>
                             </div>
                             <div class="stat-content">
-                                <h4>80k Mauris</h4>
-                                <p class="mb-0">Etiam sit amet orci</p>
+                                <h4>4.9/5.0</h4>
+                                <p class="mb-0">Penilaian terbaik dari pelanggan</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="stat-item">
                             <div class="stat-icon">
-                                <i class="bi bi-award"></i>
+                                <i class="bi bi-cash-coin"></i>
                             </div>
                             <div class="stat-content">
-                                <h4>6x Phasellus</h4>
-                                <p class="mb-0">Vestibulum ante ipsum</p>
+                                <h4>1+ Juta</h4>
+                                <p class="mb-0">Transaksi</p>
                             </div>
                         </div>
                     </div>
@@ -162,8 +162,8 @@
                     <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="feature-box orange">
                             <i class="bi bi-currency-exchange"></i>
-                            <h4>Rate Termurah</h4>
-                            <p>kami memberikan rate tukar pulsa termurag</p>
+                            <h4>Rate Terbaik</h4>
+                            <p>kami memberikan rate tukar pulsa terbaik</p>
                         </div>
                     </div><!-- End Feature Borx-->
 
@@ -255,20 +255,18 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Testimonials</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <h2>Testimoni</h2>
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row g-5">
 
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
+                            <img src="{{ asset('landing-page/assets/img/testimonials/testimonials-1.jpg') }}"
+                                class="testimonial-img" alt="">
+                            <h3>Pelanggan</h3>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
@@ -276,20 +274,17 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                    rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.</span>
+                                <span>Terimakasih kak, pelayanan cepat dan memuaskan.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
+                            <img src="{{ asset('landing-page/assets/img/testimonials/testimonials-2.jpg') }}"
+                                class="testimonial-img" alt="">
+                            <h3>Pelanggan</h3>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
@@ -297,20 +292,18 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid
-                                    cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
-                                    legam anim culpa.</span>
+                                <span>Mantap, terima kasih min, saya merasa puas ketika melakukan transaksi di
+                                    sini</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
+                            <img src="{{ asset('landing-page/assets/img/testimonials/testimonials-3.jpg') }}"
+                                class="testimonial-img" alt="">
+                            <h3>Pelanggan</h3>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
@@ -318,34 +311,12 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
-                                    veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
-                                    minim.</span>
+                                <span>Puas banget pokoknya, trusted!</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
 
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="testimonial-item">
-                            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                                alt="">
-                            <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                    class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim
-                                    fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
-                                    dolore labore illum veniam.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
 
                 </div>
 
@@ -368,37 +339,53 @@
                 <div class="row g-4">
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-card d-flex">
-                            <div class="icon flex-shrink-0">
-                                <i class="bi bi-activity"></i>
+                        <div class="service-card">
+                            <div class="row mb-2">
+                                <h3>Yuk hitung dulu, biar kamu ga bingung</h3>
                             </div>
-                            <div>
-                                <h3>Nesciunt Mete</h3>
-                                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus
-                                    dolores iure perferendis tempore et consequatur.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
-                                        class="bi bi-arrow-right"></i></a>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="">Jumlah Pulsa</label>
+                                    <input type="number" name="jumlah_pulsa" id="jumlah-pulsa-hitung"
+                                        class="form-control" placeholder="masukan jumlah pulsa yang akan dikonversi">
+                                </div>
+                                <div class="form-group mt-1">
+                                    <label for="">Provider</label>
+                                    <select name="provider" class="form-control" id="provider-pulsa">
+                                        <option selected value="null">-Pilih Provider-</option>
+                                        @foreach ($provider as $values)
+                                            <option value="{{ $values->rate_value }}"
+                                                data-string="{{ $values->rateToProvider->provider_name }}">
+                                                {{ $values->rateToProvider->provider_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="button" id="hitung-pulsa"
+                                        class="mt-3 btn btn-primary">Hitung</button>
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div><!-- End Service Card -->
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-card d-flex">
-                            <div class="icon flex-shrink-0">
-                                <i class="bi bi-diagram-3"></i>
+                        <div class="service-card">
+                            <div class="row mb-2">
+                                <h3>Hasil yang akan kamu terima di sini ya..</h3>
                             </div>
-                            <div>
-                                <h3>Eosle Commodi</h3>
-                                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque
-                                    eum hic non ut nesciunt dolorem.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
-                                        class="bi bi-arrow-right"></i></a>
+                            <div class="row">
+                                <h3>Nama Provider: <span id="provider-nama-id"></span></h3>
+                                <h4>Rate: <span id="rate-hitung"></span></h4>
+                                <h4>Hasil Konversi: <span id="hasil-hitung"></span></h4>
                             </div>
-                        </div>
-                    </div><!-- End Service Card -->
-                </div>
+                            <h5 class="text-primary">Hasil yang akan kamu dapat adalah: Rp. <span
+                                    id="hasil-hitung-pulsa"></span></h5>
+                            <div class="alert alert-primary mt-1" role="alert">
+                                Pastikan kamu memiliki pulsa lebih, dari pulsa yang mau kamu konversi ke uang
+                            </div>
+                        </div><!-- End Service Card -->
+                    </div>
 
-            </div>
+                </div>
 
         </section><!-- /Services Section -->
 
@@ -409,9 +396,8 @@
                 <div class="row">
 
                     <div class="col-lg-5" data-aos="fade-up">
-                        <h2 class="faq-title">Have a question? Check out the FAQ</h2>
-                        <p class="faq-description">Maecenas tempus tellus eget condimentum rhoncus sem quam semper
-                            libero sit amet adipiscing sem neque sed ipsum.</p>
+                        <h2 class="faq-title">FAQ</h2>
+                        <p class="faq-description">Tanya kami di sini</p>
                         <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
                             <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -426,69 +412,29 @@
                         <div class="faq-container">
 
                             <div class="faq-item faq-active">
-                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                                <h3>Bagaimana cara kerjanya?</h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
-                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.</p>
+                                    <p>Kamu cukup isi form lalu kami proses sistem</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+                                <h3>Berapa Ratenya?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>Kami memberikan rate yang terjangkau dan bersaing</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <h3>Bagaimana jika ada kendala</h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
-                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
-                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                    <p>Kamu bisa menghubungi kami melalui customer service
                                     </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
-
-                            <div class="faq-item">
-                                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                                <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                                </div>
-                                <i class="faq-toggle bi bi-chevron-right"></i>
-                            </div><!-- End Faq item-->
-
-                            <div class="faq-item">
-                                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
-                                <div class="faq-content">
-                                    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse
-                                        in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                    </p>
-                                </div>
-                                <i class="faq-toggle bi bi-chevron-right"></i>
-                            </div><!-- End Faq item-->
-
-                            <div class="faq-item">
-                                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
-                                <div class="faq-content">
-                                    <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed
-                                        in suscipit sequi. Distinctio ipsam dolore et.</p>
-                                </div>
-                                <i class="faq-toggle bi bi-chevron-right"></i>
-                            </div><!-- End Faq item-->
-
                         </div>
                     </div>
 
@@ -505,56 +451,51 @@
             <div class="row gy-4">
                 <div class="col-lg-8 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">iLanding</span>
+                        <span class="sitename">{{ config('app.name') }}</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>Jasa penukaran pulsa ke uang</p>
                     </div>
                     <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Perusahaan</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Tentang kami</a></li>
+                        <li><a href="#">Privasi</a></li>
+                        <li><a href="#">Syarat & ketentuan</a></li>
+                        <li><a href="{{ route('login') }}">Sisi kami</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Tutorial</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Cara penggunaan</a></li>
+                        <li><a href="#">Cara transfer Indosat</a></li>
+                        <li><a href="#">Cara transfer Telkomsel</a></li>
+                        <li><a href="#">Cara transfer XL</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">iLanding</strong> <span>All Rights
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">{{ config('app.name') }}</strong> <span>All
+                    Rights
                     Reserved</span></p>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you've purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-                    href="https://themewagon.com">ThemeWagon</a>
+                Designed by: <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
         </div>
 
@@ -563,7 +504,8 @@
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('landing-page/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('landing-page/assets/vendor/php-email-form/validate.js') }}"></script>
@@ -574,6 +516,40 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('landing-page/assets/js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            hitung();
+
+            function hitung() {
+                //hitung saat button di klik
+                let dropdownValue = null;
+                let textDropdown = null;
+                $("#provider-pulsa").on('change', function() {
+                    dropdownValue = parseFloat($(this).val());
+                    textDropdown = $(this).find("option:selected").text();
+                });
+
+                //hitung dan append ke element
+                $("#hitung-pulsa").click(function(e) {
+                    e.preventDefault();
+                    const pulseValueInput = $("#jumlah-pulsa-hitung").val();
+                    if (textDropdown && dropdownValue) {
+                        $("#provider-nama-id").html(textDropdown);
+                        $("#rate-hitung").html(dropdownValue);
+
+                        const result = pulseValueInput * dropdownValue;
+                        console.log(pulseValueInput);
+
+                        $("#hasil-hitung").html(result);
+                        $("#hasil-hitung-pulsa").html(result);
+                    } else {
+                        alert("Silahkan pilih provider.");
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 
