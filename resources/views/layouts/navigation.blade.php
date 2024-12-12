@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <h2 class="text-green-500"> {{config('app.name')}}</h2>
                     </a>
                 </div>
 
@@ -23,6 +23,9 @@
                     </x-nav-link>
                     <x-nav-link :href="route('payment_method')" :active="request()->routeIs('payment_method')">
                         {{ __('Payment Methods') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('transaction')" :active="request()->routeIs('transaction')">
+                        {{ __('Trasanction') }}
                     </x-nav-link>
                 </div>
             </div>

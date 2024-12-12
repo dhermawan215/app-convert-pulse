@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\RateController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
@@ -59,6 +60,12 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         Route::post('/payment-method/delete', 'destroy');
         Route::post('/payment-method/info', 'info');
         Route::post('/payment-method/update', 'update');
+    });
+    Route::controller(TransactionController::class)->group(function () {
+        Route::get('/transaction', 'index')->name('transaction');
+        Route::post('/transactions', 'list');
+        Route::post('/transaction/status-info', 'status');
+        Route::post('/transaction/change', 'change');
     });
 });
 
