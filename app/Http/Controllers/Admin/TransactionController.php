@@ -40,6 +40,7 @@ class TransactionController extends Controller
 
         $resData = $query->skip($offset)
             ->take($limit)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $recordsTotal = $resData->count();

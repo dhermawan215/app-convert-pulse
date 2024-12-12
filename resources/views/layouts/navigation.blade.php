@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <h2 class="text-green-500"> {{config('app.name')}}</h2>
+                        <h2 class="text-green-500"> {{ config('app.name') }}</h2>
                     </a>
                 </div>
 
@@ -25,7 +25,7 @@
                         {{ __('Payment Methods') }}
                     </x-nav-link>
                     <x-nav-link :href="route('transaction')" :active="request()->routeIs('transaction')">
-                        {{ __('Trasanction') }}
+                        {{ __('Transaction') }}
                     </x-nav-link>
                 </div>
             </div>
