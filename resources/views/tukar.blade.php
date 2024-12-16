@@ -26,6 +26,9 @@
     <link href="{{ asset('landing-page/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <!-- Main CSS File -->
     <link href="{{ asset('landing-page/assets/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="index-page">
@@ -68,15 +71,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="rate-value">Rate</label>
-                                <input type="text" disabled class="form-control" id="rate-values">
+                                <input type="text" disabled class="form-control" id="rate-values" required>
                             </div>
                             <div class="form-group">
                                 <label for="phone-number">Nomer Pengirim</label>
-                                <input type="text" name="phone_number" class="form-control" id="phone-number">
+                                <input type="text" name="phone_number" class="form-control" id="phone-number"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="nominal">Nominal</label>
-                                <input type="text" name="pulse_amount" class="form-control" id="nominal">
+                                <input type="text" name="pulse_amount" class="form-control" id="nominal" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Bank / E-Wallet</label>
@@ -88,14 +92,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="nominal">No Tujuan</label>
-                                <input type="text" name="payment_name" class="form-control" id="nominal">
+                                <input type="text" name="payment_name" class="form-control" id="nominal" required>
                             </div>
                             <div class="form-group">
                                 <label for="account-name">Nama Pemilik</label>
-                                <input type="text" name="account_name" class="form-control" id="account-name">
+                                <input type="text" name="account_name" class="form-control" id="account-name"
+                                    required>
                             </div>
 
-                            <button type="submit" class="btn btn-sm btn-primary mt-2">Submit</button>
+                            <button type="submit" class="btn btn-sm btn-primary mt-2" id="btn-kirim">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -174,11 +179,14 @@
     <script src="{{ asset('landing-page/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('landing-page/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('landing-page/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Main JS File -->
     <script src="{{ asset('landing-page/assets/js/main.js') }}"></script>
 
     <script>
+        var bbClaim = '{{ $bbclaim }}';
         var url = '{{ url('') }}';
         var csrf_token = $('meta[name="csrf_token"]').attr("content");
         $(document).ready(function() {
@@ -196,6 +204,16 @@
                         $("#rate-values").val(response.data);
                     }
                 });
+            });
+            $('#nominal').on('keyup change', function() {
+                const totalAmount = parseInt($(this).val());
+                const batasBawahClaim = parseInt(bbClaim);
+                if (totalAmount < batasBawahClaim) {
+                    toastr.error('nominal tidak boleh dibawah ' + batasBawahClaim);
+                    $("#btn-kirim").attr('disabled', true);
+                } else {
+                    $('#btn-kirim').removeAttr('disabled');
+                }
             });
         });
     </script>

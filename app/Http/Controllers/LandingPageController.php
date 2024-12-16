@@ -23,9 +23,11 @@ class LandingPageController extends Controller
     {
         $provider = Provider::toBase()->get();
         $payment = PaymentMethod::toBase()->get();
+        $bbClaim = env('BB_CLAIM');
         return view('tukar', [
             'provider' => $provider,
             'payment' => $payment,
+            'bbclaim' => $bbClaim,
         ]);
     }
 
