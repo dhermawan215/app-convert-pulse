@@ -60,18 +60,23 @@
                 <div class="row g-5">
                     @foreach ($provider as $value)
                         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                            <a href="{{ route('form_tukar_pulsa', $bladeTrait->encryptData($value->id)) }}"
-                                target="" rel="">
-                                <div class="testimonial-item">
+                            <div class="testimonial-item d-flex">
+                                <div>
                                     <img src="{{ asset($value->provider_image) }}" class="testimonial-img"
                                         alt="">
+                                </div>
+                                <div>
                                     <h3>Provider: {{ $value->provider_name }} </h3>
                                     <p>
                                         <span>Rate:
                                             {{ $value->rateToTransaction ? $value->rateToTransaction->rate_value : 0 }}</span>
                                     </p>
+                                    <a class="text-primary"
+                                        href="{{ route('form_tukar_pulsa', $bladeTrait->encryptData($value->id)) }}"
+                                        target="" rel="">Tukar sekarang
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     @endforeach
 
@@ -158,7 +163,7 @@
     <script>
         var url =
             '{{ url('
-                                                                                                                                                ') }}';
+                                                                                                                                                                                                            ') }}';
         var csrf_token = $('meta[name="csrf_token"]').attr("content");
         $(document).ready(function() {
             $("#provider-dropdown").on('change', function() {
