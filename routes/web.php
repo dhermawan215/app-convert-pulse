@@ -22,8 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/tukar-pulsa', [LandingPageController::class, 'tukarSekarang'])->name('tukar_pulsa');
+Route::get('/tukar-pulsa/form-tukar/{id}', [LandingPageController::class, 'tukarSekarangProcess'])->name('form_tukar_pulsa');
 Route::post('/tukar-pulsa', [LandingPageController::class, 'process'])->name('tukar_pulsa_proses');
-Route::post('/rate-pulsa', [LandingPageController::class, 'getRate']);
+// Route::post('/rate-pulsa', [LandingPageController::class, 'getRate']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
@@ -52,6 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         Route::post('/provider-celular/delete', 'destroy');
         Route::post('/provider-celular/info', 'info');
         Route::post('/provider-celular/update', 'update');
+        Route::post('/provider-celular/upload-image', 'uploadImage');
     });
     Route::controller(PaymentMethodController::class)->group(function () {
         Route::get('/payment-method', 'index')->name('payment_method');

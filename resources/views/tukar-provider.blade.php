@@ -50,61 +50,35 @@
 
     <main class="main">
         <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <form method="POST" action="{{ route('tukar_pulsa_proses') }}">
-                            @csrf
-                            <h4>Isi form berikut untuk memproses penukaran pulsa</h4>
-                            <hr>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Provider yang dipilih</label>
-                                <select name="provider" id="provider-dropdown" class="form-control">
-                                    <option selected value="{{ $provider->id }}">{{ $provider->provider_name }}
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="rate-value">Rate</label>
-                                <input type="text" value="{{ $provider->rateToTransaction->rate_value }}" disabled
-                                    class="form-control" id="rate-values">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone-number">Nomer Pengirim</label>
-                                <input type="text" name="phone_number" class="form-control" id="phone-number">
-                            </div>
-                            <div class="form-group">
-                                <label for="nominal">Nominal</label>
-                                <input type="text" name="pulse_amount" class="form-control" id="nominal">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Bank / E-Wallet</label>
-                                <select name="payment" id="payment" class="form-control">
-                                    @foreach ($payment as $py)
-                                        <option value="{{ $py->id }}">{{ $py->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nominal">No Tujuan</label>
-                                <input type="text" name="payment_name" class="form-control" id="nominal">
-                            </div>
-                            <div class="form-group">
-                                <label for="account-name">Nama Pemilik</label>
-                                <input type="text" name="account_name" class="form-control" id="account-name">
-                            </div>
-                            <button type="submit" class="btn btn-sm btn-primary mt-2">Submit</button>
+        <section id="testimonials" class="testimonials section light-background mt-5">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Pilih Provider</h2>
+            </div><!-- End Section Title -->
+            <div class="container">
+                @inject('bladeTrait', 'App\Services\AppTraitBlade')
+                <div class="row g-5">
+                    @foreach ($provider as $value)
+                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                            <a href="{{ route('form_tukar_pulsa', $bladeTrait->encryptData($value->id)) }}"
+                                target="" rel="">
+                                <div class="testimonial-item">
+                                    <img src="{{ asset($value->provider_image) }}" class="testimonial-img"
+                                        alt="">
+                                    <h3>Provider: {{ $value->provider_name }} </h3>
+                                    <p>
+                                        <span>Rate: {{ $value->rateToTransaction->rate_value }}</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
 
-                        </form>
-                        <a href="{{ route('tukar_pulsa') }}"
-                            class="btn btntext-decoration-none mt-3 text-danger">Back</a>
-                    </div>
                 </div>
 
             </div>
-        </section><!-- /Hero Section -->
 
+        </section>
 
     </main>
 
@@ -180,6 +154,29 @@
     <!-- Main JS File -->
     <script src="{{ asset('landing-page/assets/js/main.js') }}"></script>
 
+    <script>
+        var url =
+            '{{ url('
+                                                                                                                        ') }}';
+        var csrf_token = $('meta[name="csrf_token"]').attr("content");
+        $(document).ready(function() {
+            $("#provider-dropdown").on('change', function() {
+                const dropdownValue = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: url + "/rate-pulsa",
+                    data: {
+                        pr: dropdownValue,
+                        _token: csrf_token
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        $("#rate-values").val(response.data);
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

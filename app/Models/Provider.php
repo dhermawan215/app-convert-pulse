@@ -11,7 +11,7 @@ class Provider extends Model
 {
     use HasFactory;
     protected $table = 'providers';
-    protected $fillable = ['provider_name', 'created_by'];
+    protected $fillable = ['provider_name', 'created_by', 'provider_image'];
 
     //relation to transaction
     public function providerToTransaction(): HasMany

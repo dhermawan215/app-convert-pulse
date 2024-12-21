@@ -8,11 +8,13 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\PaymentMethod;
 use App\Models\Transaction;
+use App\Traits\CustomEncrypt;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 
 class LandingPageController extends Controller
 {
+    use CustomEncrypt;
     public function index()
     {
         $providerRate = Rate::with('rateToProvider:id,provider_name')->select('id', 'provider_id', 'rate_value')->get();
@@ -21,7 +23,15 @@ class LandingPageController extends Controller
 
     public function tukarSekarang()
     {
-        $provider = Provider::toBase()->get();
+        $provider = Provider::with('rateToTransaction')->get();
+        return \view('tukar-provider', ['provider' => $provider]);
+    }
+
+    public function tukarSekarangProcess($id)
+    {
+        $provider = Provider::with('rateToTransaction')
+            ->where('id', $this->decryptData($id))
+            ->firstOrFail();
         $payment = PaymentMethod::toBase()->get();
         return view('tukar', [
             'provider' => $provider,

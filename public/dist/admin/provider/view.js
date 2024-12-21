@@ -39,6 +39,7 @@ var Index = (function () {
                 { data: "cbox", orderable: false },
                 { data: "rnum", orderable: false },
                 { data: "provider_name", orderable: false },
+                { data: "image", orderable: false },
                 { data: "action", orderable: false },
             ],
             drawCallback: function (settings) {
@@ -59,6 +60,7 @@ var Index = (function () {
             table.ajax.reload();
         });
         handleButtonEdit();
+        handleButtonImage();
     };
     //push data to variable aSelected
     var handleAddDeleteAselected = function (value, parentElement) {
@@ -203,6 +205,40 @@ var Index = (function () {
         });
     };
 
+    var handleButtonImage = function () {
+        $(document).on("click", ".btn-upload-images", function () {
+            const dvx = $(this).data("dtimg");
+            formUploadImage(dvx);
+        });
+    };
+
+    var formUploadImage = function (dvx) {
+        $("#form-upload-image").submit(function (e) {
+            e.preventDefault();
+            const form = $(this);
+            let formData = new FormData(form[0]);
+            formData.append("svx", dvx);
+            $.ajax({
+                url: `${url}/admin/provider-celular/upload-image`,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (responses) {
+                    toastr.success(responses.message);
+
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                },
+                error: function (response) {
+                    $.each(response.responseJSON, function (key, value) {
+                        toastr.error(value);
+                    });
+                },
+            });
+        });
+    };
     return {
         init: function () {
             handleDataTabelUser();
