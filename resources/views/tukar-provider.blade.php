@@ -67,7 +67,8 @@
                                         alt="">
                                     <h3>Provider: {{ $value->provider_name }} </h3>
                                     <p>
-                                        <span>Rate: {{ $value->rateToTransaction->rate_value }}</span>
+                                        <span>Rate:
+                                            {{ $value->rateToTransaction ? $value->rateToTransaction->rate_value : 0 }}</span>
                                     </p>
                                 </div>
                             </a>
@@ -157,7 +158,7 @@
     <script>
         var url =
             '{{ url('
-                                                                                                                        ') }}';
+                                                                                                                                                ') }}';
         var csrf_token = $('meta[name="csrf_token"]').attr("content");
         $(document).ready(function() {
             $("#provider-dropdown").on('change', function() {

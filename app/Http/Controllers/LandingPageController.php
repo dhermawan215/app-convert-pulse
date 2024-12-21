@@ -33,9 +33,11 @@ class LandingPageController extends Controller
             ->where('id', $this->decryptData($id))
             ->firstOrFail();
         $payment = PaymentMethod::toBase()->get();
+        $bbClaim = env('BB_CLAIM');
         return view('tukar', [
             'provider' => $provider,
             'payment' => $payment,
+            'bbclaim' => $bbClaim,
         ]);
     }
 
